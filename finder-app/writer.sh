@@ -21,7 +21,7 @@ echo ${writestr} > $writefile
 status=$?
 if [ $status -eq 1 ]
 then
-    echo "ERROR: File Not Created."
+    echo "ERROR: File Not Created "
     exit 1
 else
     echo "File Created."
