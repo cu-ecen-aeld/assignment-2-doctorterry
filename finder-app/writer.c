@@ -14,13 +14,14 @@ int main(int argc, char *argv[]){
     if(argc != 3){
         printf("Invalid number of arguments\n");
         syslog(LOG_ERR, "ERROR: Invalid number of parameters. Failed.");
-        return 1;
+        exit(1);
     }
 
     fd = open (argv[1], O_WRONLY | O_CREAT | O_TRUNC, 0664);
     if (fd == -1){
         printf("Failed to open file.\n");
-        return 1 ;
+        syslog(LOG_ERR, "ERROR: Could not open file. Failed.");
+        exit(1) ;
     }
 
     write (fd, argv[2], strlen(argv[2]));
@@ -29,6 +30,6 @@ int main(int argc, char *argv[]){
 
     close(fd);
 
-    return 0;
+    exit(0);
 
 }
