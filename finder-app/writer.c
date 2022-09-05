@@ -14,7 +14,7 @@ int main(int argc, char *argv[]){
     if(argc != 3){
         printf("Invalid number of arguments\n");
         syslog(LOG_ERR, "ERROR: Invalid number of parameters. Failed.");
-        return 1 ;
+        exit(1) ;
     }
 
     fd = open (argv[1], O_WRONLY | O_CREAT | O_TRUNC, 0664);
